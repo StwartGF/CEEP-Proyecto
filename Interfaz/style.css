@@ -1,0 +1,68 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #87CEEB; /* Color celeste */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center;
+    position: relative; /* Posición relativa para evitar que la barra lateral tape el nombre */
+    z-index: 1; /* Asegura que esté por encima de la barra lateral */
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 100px; /* Desplazamiento aumentado para asegurar visibilidad */
+    left: 0;
+    background: linear-gradient(to bottom, #e6e6e6, #cccccc); /* Matices grises más claros */
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    color: #003366; /* Color azul oscuro para el título "Menú" */
+    text-align: center; /* Centrar el texto */
+    font-style: italic; /* Texto en cursiva */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black; /* Texto en negro */
+    display: block;
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.sidebar a:hover {
+    background-color: #a6a6a6; /* Cambio de color al pasar el mouse */
+}
+
+.submenu {
+    padding-left: 20px; /* Sangría para la subsección */
+}
+
+.content {
+    margin-left: 220px; /* Espacio para la barra lateral */
+    padding: 20px;
+}
+
+.dark-theme {
+    background-color: #333;
+    color: white; /* Texto blanco en modo oscuro */
+}
+
+button {
+    margin-left: 10px; /* Espacio entre botones */
+    cursor: pointer;
+}
+
+
+
