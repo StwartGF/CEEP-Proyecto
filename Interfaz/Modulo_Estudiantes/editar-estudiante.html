@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Estudiante</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Editar Estudiante</h1>
+        <form action="php/actualizar.php" method="POST">
+            <input type="hidden" id="idEstudiante" name="idEstudiante" value="1"> <!-- ID del estudiante -->
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="Juan" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" value="Pérez" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" value="juan@example.com" required>
+
+            <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" value="1995-05-15" required>
+
+            <label for="direccion">Dirección:</label>
+            <textarea id="direccion" name="direccion" required>Av. Siempre Viva 742</textarea>
+
+            <button type="submit">Actualizar Estudiante</button>
+        </form>
+
+        <!-- Botón de regresar a inicio -->
+        <a href="inicio.html" class="boton-volver">Volver a Inicio</a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!-- inicio.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Estudiantil</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="script-estudiante.js" defer></script>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Lista de Estudiantes</h1>
+
+        <!-- Barra de búsqueda -->
+        <div class="contenedor-busqueda">
+            <input type="text" id="buscar" placeholder="Buscar por nombre o ID..." oninput="filtrarEstudiantes()">
+            <a href="registrar-estudiante.html"><button>Registrar Estudiante</button></a>
+        </div>
+
+        <!-- Tabla de estudiantes -->
+        <table id="tablaEstudiantes">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los estudiantes se cargarán aquí desde PHP -->
+                <tr>
+                    <td>1</td>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>juan@example.com</td>
+                    <td>
+                        <!-- Botón Modificar con clase 'modificar' -->
+                        <button class="modificar" onclick="window.location.href='editar-estudiante.html?id=1'">Modificar</button>
+                        <!-- Botón Eliminar con clase 'eliminar' -->
+                        <button class="eliminar" onclick="eliminarEstudiante(1)">Eliminar</button>
+                    </td>
+                </tr>
+                <!-- Más filas de estudiantes -->
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>
