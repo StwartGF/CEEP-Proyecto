@@ -6,6 +6,15 @@ body {
     padding: 0;
 }
 
+.header {
+    background-color: #add8e6;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .navbar {
     background-color: #87CEEB; /* Color celeste */
     padding: 15px;
@@ -30,6 +39,7 @@ body {
     color: #003366; /* Color azul oscuro para el título "Menú" */
     text-align: center; /* Centrar el texto */
     font-style: italic; /* Texto en cursiva */
+    font-weight: bold;
 }
 
 .sidebar a {
@@ -39,6 +49,16 @@ body {
     display: block;
     font-weight: bold; /* Texto en negrita */
     text-transform: uppercase; /* Texto en mayúsculas */
+
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
 }
 
 .sidebar a:hover {
@@ -52,6 +72,7 @@ body {
 .content {
     margin-left: 220px; /* Espacio para la barra lateral */
     padding: 20px;
+    flex-grow: 1;
 }
 
 .dark-theme {
@@ -64,5 +85,30 @@ button {
     cursor: pointer;
 }
 
+form {
+    margin-bottom: 20px;
+}
 
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
 

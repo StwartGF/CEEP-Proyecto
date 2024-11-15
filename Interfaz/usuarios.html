@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEEP CONNECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="navbar">
+    <h1>CEEP CONNECT</h1>
+    <div>
+        <button onclick="toggleTheme()">Tema Oscuro</button>
+        <button>Cerrar Sesión</button>
+    </div>
+</div>
+<!-- <div class="sidebar">
+    <h2>Menú</h2>
+    <a href="#estudiantes">Estudiantes</a>
+    <a href="profesores.html">Profesores</a>
+    <div class="submenu">
+        <a href="#calificaciones">Calificaciones</a>
+        <a href="#asistencia">Asistencia</a>
+    </div>
+    <a href="#materias">Materias</a>
+</div>-->
+
+<div class="sidebar">
+    <h2>Menú</h2>
+    <a href="#estudiantes">Estudiantes</a>
+    <a href="profesores.html">Profesores</a>
+    <div class="submenu">
+        <a href="#calificaciones">Calificaciones</a>
+        <a href="#asistencia">Asistencia</a>
+    </div>
+    <a href="#materias">Materias</a>
+</div>
+<div class="content">
+    <h1>Registro de Usuarios</h1>
+    <form id="registro">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <h1>Inicio de Sesión</h1>
+    <form id="login">
+        <label for="correo-login">Correo Electrónico:</label>
+        <input type="email" id="correo-login" name="correo-login" required>
+
+        <label for="contrasena-login">Contraseña:</label>
+        <input type="password" id="contrasena-login" name="contrasena-login" required>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <h1>Gestión de Roles</h1>
+    <form id="gestion-roles">
+        <label for="usuario">Seleccionar Usuario:</label>
+        <select id="usuario" name="usuario">
+            <option value="usuario1">Usuario 1</option>
+            <option value="usuario2">Usuario 2</option>
+            <!-- Agregar más usuarios según sea necesario -->
+        </select>
+
+        <label for="rol">Asignar Rol:</label>
+        <select id="rol" name="rol">
+            <option value="administrador">Administrador</option>
+            <option value="profesor">Profesor</option>
+            <option value="estudiante">Estudiante</option>
+        </select>
+
+        <button type="submit">Asignar Rol</button>
+    </form>
+</div>
+</body>
+</html>
