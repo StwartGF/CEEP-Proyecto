@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEEP CONNECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>CEEP CONNECT</h1>
+        <div>
+            <button onclick="toggleTheme()">Tema Oscuro</button>
+            <button>Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <a href="#estudiantes">Estudiantes</a>
+        <a href="profesores.html">Profesores</a>
+        <div class="submenu">
+            <a href="#calificaciones">Calificaciones</a>
+            <a href="#asistencia">Asistencia</a>
+        </div>
+        <a href="#materias">Materias</a>
+    </div>
+    
+
+    <div class="content" style="max-width: 800px; margin: auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Lista de Profesores</h2>
+        
+        <!-- Barra de búsqueda y botón de agregar profesor -->
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <input type="text" placeholder="Buscar profesor..." style="flex: 1; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;">
+            <button id="addProfessorBtn" style="margin-left: 10px; padding: 10px 15px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                Agregar Profesor
+            </button>
+        </div>
+        
+        <!-- Tabla de profesores -->
+        <table id="professorTable" style="width: 100%; border-collapse: collapse; font-size: 16px;">
+            <thead>
+                <tr style="background-color: #4CAF50; color: white;">
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">ID</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Nombre</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Apellido</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Correo</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Cursos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f9f9f9;">
+                    <td>001</td>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>juan.perez@escuela.edu</td>
+                    <td>Matemáticas, Física</td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Modal para agregar profesor -->
+    <div id="professorModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+        <div style="background-color: #ffffff; width: 400px; padding: 20px; margin: 10% auto; border-radius: 10px;">
+            <h3>Agregar Profesor</h3>
+            <label>ID:</label>
+            <input type="text" id="professorId" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <label>Nombre:</label>
+            <input type="text" id="professorName" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <label>Apellido:</label>
+            <input type="text" id="professorLastName" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <label>Correo:</label>
+            <input type="email" id="professorEmail" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <label>Cursos:</label>
+            <input type="text" id="professorCourses" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <button onclick="addProfessor()" style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Agregar</button>
+            <button onclick="closeModal()" style="padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Cancelar</button>
+        </div>
+    </div>
+    
+    <script>
+        // Función para mostrar el modal
+        document.getElementById("addProfessorBtn").onclick = function() {
+            document.getElementById("professorModal").style.display = "block";
+        }
+    
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById("professorModal").style.display = "none";
+        }
+    
+        // Función para agregar un profesor a la tabla
+        function addProfessor() {
+            // Obtener valores de los campos de entrada
+            var id = document.getElementById("professorId").value;
+            var name = document.getElementById("professorName").value;
+            var lastName = document.getElementById("professorLastName").value;
+            var email = document.getElementById("professorEmail").value;
+            var courses = document.getElementById("professorCourses").value;
+    
+            // Crear una nueva fila
+            var table = document.getElementById("professorTable").getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+    
+            newRow.innerHTML = `
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${lastName}</td>
+                <td>${email}</td>
+                <td>${courses}</td>
+            `;
+    
+            // Cerrar el modal y limpiar los campos de entrada
+            closeModal();
+            document.getElementById("professorId").value = '';
+            document.getElementById("professorName").value = '';
+            document.getElementById("professorLastName").value = '';
+            document.getElementById("professorEmail").value = '';
+            document.getElementById("professorCourses").value = '';
+        }
+    </script>
+    
+    
+    
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+
+</body>
+</html>
