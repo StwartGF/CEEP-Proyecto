@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Materias - CEEP CONNECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>CEEP CONNECT</h1>
+        <div>
+            <button onclick="toggleTheme()">Tema Oscuro</button>
+            <button>Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <a href="home.html">Inicio</a>
+        <a href="estudiantes.html">Estudiantes</a>
+        <a href="profesores.html">Profesores</a>
+        <div class="submenu">
+            <a href="calificaciones.html">Calificaciones</a>
+            <a href="#asistencia">Asistencia</a>
+        </div>
+        <a href="materias.html">Materias</a>
+    </div>
+
+    <div class="content">
+        <h2>Gestión de Materias</h2>
+        <!-- Formulario para registrar materias -->
+        <div class="form-container">
+            <h3>Registrar Nueva Materia</h3>
+            <form id="materiaForm">
+                <label for="materiaNombre">Nombre de la Materia:</label>
+                <input type="text" id="materiaNombre" name="materiaNombre" required>
+                <label for="materiaCodigo">Código de la Materia:</label>
+                <input type="text" id="materiaCodigo" name="materiaCodigo" required>
+                <button type="submit">Registrar Materia</button>
+            </form>
+        </div>
+
+        <!-- Tabla para listar materias -->
+        <div>
+            <h3>Lista de Materias</h3>
+            <table id="tablaMaterias">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAT001</td>
+                        <td>Matemáticas</td>
+                        <td><button>Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FIS001</td>
+                        <td>Física</td>
+                        <td><button>Eliminar</button></td>
+                    </tr>
+                    <!-- Agrega más filas según sea necesario -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Calificaciones - CEEP CONNECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>CEEP CONNECT</h1>
+        <div>
+            <button onclick="toggleTheme()">Tema Oscuro</button>
+            <button>Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Menú</h2>
+        <a href="home.html">Inicio</a>
+        <a href="estudiantes.html">Estudiantes</a>
+        <a href="profesores.html">Profesores</a>
+        <a href="calificaciones.html">Calificaciones</a>
+        <a href="materias.html">Materias</a>
+    </div>
+
+    <div class="content">
+        <h2>Gestión de Calificaciones</h2>
+        <!-- Formulario para registrar calificaciones -->
+        <div>
+            <h3>Registrar Nueva Calificación</h3>
+            <form id="calificacionForm">
+                <label for="calificacionEstudianteId">ID del Estudiante:</label>
+                <input type="text" id="calificacionEstudianteId" name="calificacionEstudianteId" required>
+                <label for="calificacionMateriaCodigo">Código de la Materia:</label>
+                <input type="text" id="calificacionMateriaCodigo" name="calificacionMateriaCodigo" required>
+                <label for="calificacionNota">Calificación:</label>
+                <input type="number" id="calificacionNota" name="calificacionNota" required min="0" max="100">
+                <button type="button" onclick="agregarCalificacion()">Registrar Calificación</button>
+            </form>
+        </div>
+
+        <!-- Tabla para listar calificaciones -->
+        <div>
+            <h3>Lista de Calificaciones</h3>
+            <table id="tablaCalificaciones">
+                <thead>
+                    <tr>
+                        <th>ID Estudiante</th>
+                        <th>Código Materia</th>
+                        <th>Calificación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las calificaciones registradas se agregarán aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
