@@ -85,6 +85,7 @@ button:hover {
 .boton-volver:hover {
     background-color: #bd2130; /* Rojo oscuro */
 }
+
 /* Botón para Modificar (color amarillo) */
 button.modificar {
     background-color: #ffc107; /* Amarillo */
@@ -100,6 +101,7 @@ button.modificar {
 button.modificar:hover {
     background-color: yellow; /* rojo oscuro al pasar el mouse */
 }
+
 /* Botón para eliminar (color amarillo) */
 button.eliminar {
     background-color: red; /* rojo */
@@ -116,8 +118,7 @@ button.eliminar:hover {
     background-color: red; /* red oscuro al pasar el mouse */
 }
 
-
-/* Estilo para tablas (si las tienes) */
+/* Estilo para tablas */
 table {
     border-collapse: collapse;
     margin-top: 30px;
