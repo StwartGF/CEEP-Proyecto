@@ -1,31 +1,29 @@
-<!-- inicio.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta Estudiantil</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script src="script-estudiante.js" defer></script>
+    <title>Consulta de Profesores</title>
+    <link rel="stylesheet" href="estilo-profesores.css">
+    <script src="script-profesor.js" defer></script>
 </head>
 <body>
     <div class="contenedor">
-        <h1>Lista de Estudiantes</h1>
+        <h1>Lista de Profesores</h1>
 
-        <!-- Botón para volver al home --> 
-        <div class="boton-volver-home">
-            <a href="../home.html"><button>Volver al Home</button></a>
-        </div>        
+        <div class="boton-volver-home"> 
+            <a href="../home.html"><button>Volver al Home</button></a> 
+        </div>
 
         <!-- Barra de búsqueda -->
         <div class="contenedor-busqueda">
-            <input type="text" id="buscar" placeholder="Buscar por nombre o ID..." oninput="filtrarEstudiantes()">
-            <button class="boton-buscar" onclick="filtrarEstudiantes()">Buscar</button> <!-- Clase CSS añadida -->
-            <a href="registrar-estudiante.html"><button>Registrar Estudiante</button></a>
+            <input type="text" id="buscar" placeholder="Buscar por nombre o ID..." oninput="filtrarProfesores()">
+            <button class="boton-buscar" onclick="filtrarProfesores()">Buscar</button> 
+            <a href="registrar-profesor.html"><button>Registrar Profesor</button></a>
         </div>
 
-        <!-- Tabla de estudiantes -->
-        <table id="tablaEstudiantes">
+        <!-- Tabla de profesores -->
+        <table id="tablaProfesores">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -36,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Los estudiantes se cargarán aquí desde PHP -->
+                <!-- Los profesores se cargarán aquí desde PHP -->
             </tbody>
         </table>
         
@@ -47,37 +45,37 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            cargarEstudiantes();
+            cargarProfesores();
         });
 
-        function cargarEstudiantes() {
+        function cargarProfesores() {
             fetch('php/listar.php')
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);  
-                    const tbody = document.getElementById('tablaEstudiantes').getElementsByTagName('tbody')[0];
+                    const tbody = document.getElementById('tablaProfesores').getElementsByTagName('tbody')[0];
                     tbody.innerHTML = '';
-                    data.forEach(estudiante => {
+                    data.forEach(profesor => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${estudiante.id_estudiante}</td>
-                            <td>${estudiante.nombre}</td>
-                            <td>${estudiante.apellido}</td>
-                            <td>${estudiante.email}</td>
+                            <td>${profesor.id_profesor}</td>
+                            <td>${profesor.nombre}</td>
+                            <td>${profesor.apellido}</td>
+                            <td>${profesor.email}</td>
                             <td>
-                                <button class="modificar" onclick="window.location.href='editar-estudiante.html?id=${estudiante.id_estudiante}'">Modificar</button>
-                                <button class="eliminar" onclick="eliminarEstudiante(${estudiante.id_estudiante})">Eliminar</button>
+                                <button class="modificar" onclick="window.location.href='editar-profesor.html?id=${profesor.id_profesor}'">Modificar</button>
+                                <button class="eliminar" onclick="eliminarProfesor(${profesor.id_profesor})">Eliminar</button>
                             </td>
                         `;
                         tbody.appendChild(row);
                     });
                 })
-                .catch(error => console.error('Error al cargar estudiantes:', error));
+                .catch(error => console.error('Error al cargar profesores:', error));
         }
 
-        function filtrarEstudiantes() {
+        function filtrarProfesores() {
             const input = document.getElementById('buscar').value.toLowerCase();
-            const filas = document.getElementById('tablaEstudiantes').getElementsByTagName('tr');
+            const filas = document.getElementById('tablaProfesores').getElementsByTagName('tr');
             let resultadoEncontrado = false;
 
             for (let i = 1; i < filas.length; i++) {
@@ -101,14 +99,14 @@
             }
         }
 
-        function eliminarEstudiante(id) {
-            if (confirm("¿Estás seguro de eliminar este estudiante?")) {
+        function eliminarProfesor(id) {
+            if (confirm("¿Estás seguro de eliminar este profesor?")) {
                 fetch('php/eliminar.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ idEstudiante: id })
+                    body: JSON.stringify({ idProfesor: id })
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -118,9 +116,9 @@
                     } else if (data.error) {
                         alert(data.error);
                     }
-                    cargarEstudiantes();  
+                    cargarProfesores();  
                 })
-                .catch(error => console.error('Error al eliminar estudiante:', error));
+                .catch(error => console.error('Error al eliminar profesor:', error));
             }
         }
     </script>

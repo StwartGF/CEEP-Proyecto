@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Estudiante</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Editar Profesor</title>
+    <link rel="stylesheet" href="estilo-profesores.css">
 </head>
 <body>
     <div class="contenedor">
-        <h1>Editar Estudiante</h1>
-
+        <h1>Editar Profesor</h1>
+        
         <!-- Mensajes de éxito o error -->
         <div id="messages"></div>
 
         <form id="editForm" action="php/actualizar.php" method="POST">
-            <input type="hidden" id="idEstudiante" name="idEstudiante">
+            <input type="hidden" id="idProfesor" name="idProfesor">
 
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -31,44 +31,44 @@
             <label for="direccion">Dirección:</label>
             <textarea id="direccion" name="direccion" required></textarea>
 
-            <button type="submit">Actualizar Estudiante</button>
+            <button type="submit">Actualizar Profesor</button>
         </form>
 
         <!-- Botón de regresar a inicio -->
-        <a href="inicio.html" class="boton-volver">Volver a Inicio</a>
+        <a href="inicio-profesores.html" class="boton-volver">Volver a Inicio</a>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams(window.location.search);
-            const idEstudiante = params.get('id');
+            const idProfesor = params.get('id');
 
-            if (idEstudiante) {
-                fetch(`php/obtener_estudiante.php?id=${idEstudiante}`)
+            if (idProfesor) {
+                fetch(`php/obtener_profesor.php?id=${idProfesor}`)
                     .then(response => response.json())
-                    .then(estudiante => {
-                        if (estudiante) {
-                            document.getElementById('idEstudiante').value = estudiante.id_estudiante;
-                            document.getElementById('nombre').value = estudiante.nombre;
-                            document.getElementById('apellido').value = estudiante.apellido;
-                            document.getElementById('correo').value = estudiante.email;
-                            document.getElementById('fecha-nacimiento').value = estudiante.fecha_nacimiento;
-                            document.getElementById('direccion').value = estudiante.direccion;
+                    .then(profesor => {
+                        if (profesor) {
+                            document.getElementById('idProfesor').value = profesor.id_profesor;
+                            document.getElementById('nombre').value = profesor.nombre;
+                            document.getElementById('apellido').value = profesor.apellido;
+                            document.getElementById('correo').value = profesor.email;
+                            document.getElementById('fecha-nacimiento').value = profesor.fecha_nacimiento;
+                            document.getElementById('direccion').value = profesor.direccion;
                         } else {
-                            alert("Estudiante no encontrado");
+                            alert("Profesor no encontrado");
                         }
                     })
-                    .catch(error => console.error('Error al obtener el estudiante:', error));
+                    .catch(error => console.error('Error al obtener el profesor:', error));
             }
 
             const messages = document.getElementById('messages');
 
             if (params.has('success')) {
-                messages.innerHTML = '<div class="alerta-exito">Estudiante actualizado exitosamente.</div>';
+                messages.innerHTML = '<div class="alerta-exito">Profesor actualizado exitosamente.</div>';
             }
 
             if (params.has('error')) {
-                messages.innerHTML = '<div class="alerta-error">Error al actualizar estudiante: ' + decodeURIComponent(params.get('message')) + '</div>';
+                messages.innerHTML = '<div class="alerta-error">Error al actualizar profesor: ' + decodeURIComponent(params.get('message')) + '</div>';
             }
         });
     </script>

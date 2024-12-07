@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Estudiante</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Registrar Profesor</title>
+    <link rel="stylesheet" href="estilo-profesores.css">
 </head>
 <body>
     <div class="contenedor">
-        <h1>Registrar Nuevo Estudiante</h1>
-
-        <!-- Mensajes de éxito o error --> 
-        <div id="messages"></div>
-
+        <h1>Registrar Nuevo Profesor</h1>
         <form action="php/registrar.php" method="POST">
             <div class="campo">
                 <label for="nombre">Nombre:</label>
@@ -39,28 +35,12 @@
                 <textarea id="direccion" name="direccion" required></textarea>
             </div>
 
-            <button type="submit">Registrar Estudiante</button>
+            <button type="submit">Registrar Profesor</button>
         </form>
-        
-        <!-- Botón para volver a la página de inicio -->
-        <a href="inicio.html" class="boton-volver">Volver</a>
-    </div>
 
-    <script> 
-        // Mostrar mensajes de éxito o error 
-        document.addEventListener('DOMContentLoaded', function() { 
-            const params = new URLSearchParams(window.location.search); 
-            const messages = document.getElementById('messages'); 
-            
-            if (params.has('success')) { 
-                messages.innerHTML = '<div class="alerta-exito">Estudiante registrado exitosamente.</div>'; 
-            } 
-            
-            if (params.has('error')) { 
-                messages.innerHTML = '<div class="alerta-error">Error al registrar estudiante: ' + decodeURIComponent(params.get('message')) + '</div>'; 
-            } 
-        }); 
-    </script>
+        <div class="boton-volver">
+            <a href="inicio-profesores.html"><button>Volver</button></a>
+        </div>
+    </div>
 </body>
 </html>
-
