@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Calificaciones - CEEP CONNECT</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylecalificaciones.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="navbar">
@@ -20,30 +21,31 @@
         <a href="home.html">Inicio</a>
         <a href="estudiantes.html">Estudiantes</a>
         <a href="profesores.html">Profesores</a>
-        <a href="calificaciones.html">Calificaciones</a>
+        <div class="submenu">
+            <a href="calificaciones.html">Calificaciones</a>
+            <a href="#asistencia">Asistencia</a>
+        </div>
         <a href="materias.html">Materias</a>
     </div>
 
     <div class="content">
-        <h2>Gestión de Calificaciones</h2>
-        <!-- Formulario para registrar calificaciones -->
-        <div>
+        <div class="form-container">
+            <h2>Gestión de Calificaciones</h2>
             <h3>Registrar Nueva Calificación</h3>
-            <form id="calificacionForm">
-                <label for="calificacionEstudianteId">ID del Estudiante:</label>
-                <input type="text" id="calificacionEstudianteId" name="calificacionEstudianteId" required>
-                <label for="calificacionMateriaCodigo">Código de la Materia:</label>
-                <input type="text" id="calificacionMateriaCodigo" name="calificacionMateriaCodigo" required>
-                <label for="calificacionNota">Calificación:</label>
-                <input type="number" id="calificacionNota" name="calificacionNota" required min="0" max="100">
-                <button type="button" onclick="agregarCalificacion()">Registrar Calificación</button>
+            <form id="calificaciones-form">
+                <label for="estudiante-id">ID del Estudiante:</label>
+                <input type="text" id="estudiante-id" name="estudiante-id" required>
+                <label for="codigo-materia">Código de la Materia:</label>
+                <input type="text" id="codigo-materia" name="codigo-materia" required>
+                <label for="calificacion">Calificación:</label>
+                <input type="number" id="calificacion" name="calificacion" required>
+                <button type="submit" class="primary-btn">Registrar Calificación</button>
             </form>
         </div>
 
-        <!-- Tabla para listar calificaciones -->
-        <div>
+        <div class="table-container">
             <h3>Lista de Calificaciones</h3>
-            <table id="tablaCalificaciones">
+            <table id="lista-calificaciones">
                 <thead>
                     <tr>
                         <th>ID Estudiante</th>
@@ -53,12 +55,52 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Las calificaciones registradas se agregarán aquí -->
+                    <tr>
+                        <td>001</td>
+                        <td>MAT001</td>
+                        <td>85</td>
+                        <td><button class="delete-btn" onclick="eliminarCalificacion(this)">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>FIS001</td>
+                        <td>90</td>
+                        <td><button class="delete-btn" onclick="eliminarCalificacion(this)">Eliminar</button></td>
+                    </tr>
+                    <!-- Agrega más filas según sea necesario -->
                 </tbody>
             </table>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+
+        function eliminarCalificacion(button) {
+            const row = button.closest('tr');
+            row.remove();
+        }
+
+        document.getElementById('calificaciones-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('estudiante-id').value;
+            const materia = document.getElementById('codigo-materia').value;
+            const calificacion = document.getElementById('calificacion').value;
+
+            const table = document.getElementById('lista-calificaciones');
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${id}</td>
+                <td>${materia}</td>
+                <td>${calificacion}</td>
+                <td><button class="delete-btn" onclick="eliminarCalificacion(this)">Eliminar</button></td>
+            `;
+
+            document.getElementById('calificaciones-form').reset();
+        });
+    </script>
 </body>
 </html>

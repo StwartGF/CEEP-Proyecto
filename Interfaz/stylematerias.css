@@ -1,0 +1,212 @@
+/* stylematerias.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.navbar {
+    background-color: #4A90E2; /* Azul moderno */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center;
+    position: relative; /* Posición relativa para evitar que la barra lateral tape el nombre */
+    z-index: 1; /* Asegura que esté por encima de la barra lateral */
+}
+
+.navbar h1 {
+    margin: 0;
+    color: white;
+    font-weight: 500;
+}
+
+.navbar button {
+    background-color: white;
+    color: #4A90E2;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #357ABD;
+    color: white;
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0; /* Cambiado a 0 para que la barra lateral comience desde arriba */
+    left: 0;
+    background: #34495E; /* Azul oscuro */
+    padding-top: 60px; /* Desplazamiento para evitar la barra de navegación */
+    color: white;
+}
+
+.sidebar h2 {
+    color: white; /* Color blanco para el título "Menú" */
+    text-align: center; /* Centrar el texto */
+    font-style: italic; /* Texto en cursiva */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white; /* Texto en blanco */
+    display: block;
+    font-weight: 500; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #2C3E50; /* Cambio de color al pasar el mouse */
+}
+
+.submenu {
+    padding-left: 20px; /* Sangría para la subsección */
+}
+
+.content {
+    margin-left: 220px; /* Espacio para la barra lateral */
+    padding: 20px;
+    background-color: #ecf0f1;
+    min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la pantalla */
+}
+
+.form-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2, .form-container h3 {
+    text-align: center;
+    color: #4A90E2;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+    outline: none;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #357ABD;
+}
+
+.table-container {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table-container h3 {
+    text-align: center;
+    color: #4A90E2;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4A90E2;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+.delete-btn {
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.primary-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.primary-btn:hover {
+    background-color: #388E3C;
+}
+
+.dark-theme {
+    background-color: #333;
+    color: white;
+}
+
+button {
+    margin-left: 10px; /* Espacio entre botones */
+    cursor: pointer;
+}
