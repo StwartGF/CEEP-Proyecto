@@ -41,17 +41,17 @@
         .btn-primary:hover {
             background-color: #1d2a43 !important;
         }
-        .btn-success {
-            background-color: #28a745 !important;
-        }
-        .btn-success:hover {
-            background-color: #218838 !important;
-        }
         .btn-warning {
             background-color: #ffc107 !important;
         }
         .btn-warning:hover {
             background-color: #e0a800 !important;
+        }
+        .btn-danger {
+            background-color: #dc3545 !important;
+        }
+        .btn-danger:hover {
+            background-color: #a71d2a !important;
         }
         table {
             width: 100%;
@@ -71,7 +71,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
         <a class="navbar-brand" href="home.html">
-            <img src="images/logo-ceep.png"  width="50" height="50">
+            <img src="images/logo-ceep.png" alt="Logo CEEP" width="50" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -83,32 +83,29 @@
                 <li class="nav-item"><a class="nav-link" href="profesores.html">Profesores</a></li>
                 <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
                 <li class="nav-item"><a class="nav-link active" href="materias.html">Materias</a></li>
-                <li class="nav-item"><a class="nav-link" href="asistencia.html">asistencias</a></li>
-                <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="asistencia.html">Asistencias</a></li>
                 <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
-
+                <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Nosotros</a></li>
             </ul>
         </div>
     </nav>
 
-
     <div class="container mt-4">
-
         <div class="info-container text-center">
             <h3>Gestión de Materias</h3>
-                   </div>
+        </div>
         <div class="form-container">
             <h2>Registrar Nueva Materia</h2>
             <form id="materiaForm">
                 <div class="form-group">
-                    <label for="materiaNombre">Nombre de la Materia:</label>
-                    <input type="text" id="materiaNombre" name="materiaNombre" class="form-control" placeholder="Ejemplo: Matemáticas" required>
+                    <label for="materiaCodigo">Código de la Materia:</label>
+                    <input type="text" id="materiaCodigo" class="form-control" placeholder="Ejemplo: MAT001" required>
                 </div>
                 <div class="form-group">
-                    <label for="materiaCodigo">Código de la Materia:</label>
-                    <input type="text" id="materiaCodigo" name="materiaCodigo" class="form-control" placeholder="Ejemplo: MAT001" required>
+                    <label for="materiaNombre">Nombre de la Materia:</label>
+                    <input type="text" id="materiaNombre" class="form-control" placeholder="Ejemplo: Matemáticas" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Registrar Materia</button>
+                <button type="button" class="btn btn-primary" onclick="guardarMateria()">Guardar Materia</button>
             </form>
         </div>
         <div class="table-container">
@@ -122,22 +119,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>MAT001</td>
-                        <td>Matemáticas</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm">Editar</button>
-                            <button class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>FIS001</td>
-                        <td>Física</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm">Editar</button>
-                            <button class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                    </tr>
+               
                 </tbody>
             </table>
         </div>
@@ -147,5 +129,41 @@
         <p>© 2024 CEEP CONNECT. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        let filaSeleccionada = null;
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        function guardarMateria() {
+            const codigo = document.getElementById('materiaCodigo').value;
+            const nombre = document.getElementById('materiaNombre').value;
+
+            if (filaSeleccionada) {
+                filaSeleccionada.cells[0].textContent = codigo;
+                filaSeleccionada.cells[1].textContent = nombre;
+                filaSeleccionada = null;
+            } else {
+                const tableBody = document.querySelector('#tablaMaterias tbody');
+                const nuevaFila = tableBody.insertRow();
+                nuevaFila.innerHTML = `
+                    <td>${codigo}</td>
+                    <td>${nombre}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editarMateria(this)">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarMateria(this)">Eliminar</button>
+                    </td>
+                `;
+            }
+            document.getElementById('materiaForm').reset();
+        }
+
+        function editarMateria(button) {
+            filaSeleccionada = button.closest('tr');
+            document.getElementById('materiaCodigo').value = filaSeleccionada.cells[0].textContent;
+            document.getElementById('materiaNombre').value = filaSeleccionada.cells[1].textContent;
+        }
+
+        function eliminarMateria(button) {
+            button.closest('tr').remove();
+        }
+    </script>
+</body>
+</html>
