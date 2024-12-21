@@ -34,7 +34,6 @@
         }
         .info-container h3 {
             color: #283553;
-
         }
         .btn-primary {
             background-color: #283553 !important;
@@ -85,17 +84,18 @@
                 <li class="nav-item"><a class="nav-link active" href="profesores.html">Profesores</a></li>
                 <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
                 <li class="nav-item"><a class="nav-link" href="materias.html">Materias</a></li>
+                <li class="nav-item"><a class="nav-link" href="asistencia.html">asistencias</a></li>
+                <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
             </ul>
         </div>
     </nav>
     <div class="container info-container mt-4">
         <h3>Gestión de Profesores</h3>
     </div>
-
     <div class="container text-right mb-3">
         <button class="btn btn-primary" data-toggle="modal" data-target="#professorModal" onclick="prepararAgregar()">Registrar Profesor</button>
     </div>
-
     <div class="container table-container">
         <h2>Lista de Profesores</h2>
         <table id="professorTable" class="table table-striped">
@@ -124,11 +124,9 @@
             </tbody>
         </table>
     </div>
-
     <footer class="text-center py-4 mt-5">
         <p>© 2024 CEEP CONNECT. Todos los derechos reservados.</p>
     </footer>
-
     <div id="professorModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -164,17 +162,26 @@
             </div>
         </div>
     </div>
-
     <script>
-        let filaSeleccionada = null;
 
+    let filaSeleccionada = null;
         function prepararAgregar() {
             filaSeleccionada = null;
             document.getElementById('profesorForm').reset();
             document.querySelector('.modal-title').textContent = 'Registrar Profesor';
         }
 
-        function editarProfesor(button) {
+function editarProfesor(button) {
+    filaSeleccionada = button.closest('tr');
+    const celdas = filaSeleccionada.getElementsByTagName('td');
+    document.getElementById('professorId').value = celdas[0].textContent;
+    document.getElementById('professorName').value = celdas[1].textContent;
+    document.getElementById('professorLastName').value = celdas[2].textContent;
+    document.getElementById('professorEmail').value = celdas[3].textContent;
+    document.getElementById('professorCourses').value = celdas[4].textContent;
+    document.querySelector('.modal-title').textContent = 'Editar Profesor';
+}
+function editarProfesor(button) {
             filaSeleccionada = button.closest('tr');
             const celdas = filaSeleccionada.getElementsByTagName('td');
             document.getElementById('professorId').value = celdas[0].textContent;
@@ -184,14 +191,12 @@
             document.getElementById('professorCourses').value = celdas[4].textContent;
             document.querySelector('.modal-title').textContent = 'Editar Profesor';
         }
-
         function guardarProfesor() {
             const id = document.getElementById('professorId').value;
             const name = document.getElementById('professorName').value;
             const lastName = document.getElementById('professorLastName').value;
             const email = document.getElementById('professorEmail').value;
             const courses = document.getElementById('professorCourses').value;
-
             if (filaSeleccionada) {
                 const celdas = filaSeleccionada.getElementsByTagName('td');
                 celdas[0].textContent = id;
@@ -215,11 +220,9 @@
                     </td>
                 `;
             }
-
             document.getElementById('profesorForm').reset();
             $('#professorModal').modal('hide');
         }
-
         function eliminarProfesor(button) {
             button.closest('tr').remove();
         }

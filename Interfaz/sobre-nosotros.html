@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - CEEP CONNECT</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg-primary {
+            background-color: #283553 !important;
+        }
+        footer {
+            background-color: #283553;
+            color: white;
+        }
+        .navbar {
+            padding: 0.5rem 1rem;
+        }
+        .navbar-nav {
+            margin: auto;
+        }
+        .dialog-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .dialog-box {
+            background: linear-gradient(to bottom, #ffffff, #e9ecef);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .dialog-box:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #ffffff;
+        }
+        .dialog-box h3 {
+            color: #283553;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .dialog-box p {
+            color: #5a5a5a;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .illustration {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+        <a class="navbar-brand" href="home.html">
+            <img src="images/logo-ceep.png" alt="Logo CEEP" width="50" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="Modulo_Estudiantes/estudiantes.html">Estudiantes</a></li>
+                <li class="nav-item"><a class="nav-link" href="profesores.html">Profesores</a></li>
+                <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="materias.html">Materias</a></li>
+                <li class="nav-item"><a class="nav-link" href="asistencia.html">asistencias</a></li>
+                <li class="nav-item"><a class="nav-link active" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="text-center">Sobre Nosotros</h2>
+        <div class="dialog-container">
+            <div class="dialog-box">
+                <h3>Visión</h3>
+                <p>Ser un referente en la gestión educativa, proporcionando herramientas digitales innovadoras que transformen la experiencia de aprendizaje y enseñanza.</p>
+            </div>
+            <div class="dialog-box">
+                <h3>Misión</h3>
+                <p>Facilitar la interacción entre estudiantes, profesores y administradores a través de una plataforma intuitiva y eficiente que optimice la gestión educativa.</p>
+            </div>
+            <div class="dialog-box">
+                <h3>Nuestra Historia</h3>
+                <p>CEEP CONNECT nació con el propósito de modernizar la gestión educativa en instituciones de enseñanza. Inspirados en la necesidad de crear una experiencia más conectada y accesible, desarrollamos una plataforma que responde a los desafíos actuales del sector educativo. Desde nuestra fundación, hemos crecido con el apoyo de comunidades educativas, innovando constantemente para ofrecer soluciones prácticas y sostenibles.</p>
+            </div>
+        </div>
+        <div class="illustration">
+            <img src="images/logo-ceep.png" alt="Visión y Misión">
+        </div>
+    </div>
+
+    <footer class="text-center py-4 mt-5">
+        <p>© 2024 CEEP CONNECT. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

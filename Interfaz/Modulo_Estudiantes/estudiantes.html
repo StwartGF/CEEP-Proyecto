@@ -85,6 +85,12 @@
                 <li class="nav-item"><a class="nav-link" href="../profesores.html">Profesores</a></li>
                 <li class="nav-item"><a class="nav-link" href="../calificaciones.html">Calificaciones</a></li>
                 <li class="nav-item"><a class="nav-link" href="../materias.html">Materias</a></li>
+                <li class="nav-item"><a class="nav-link" href="../asistencia.html">asistencias</a></li>
+                <li class="nav-item"><a class="nav-link" href="../sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="../reportes.html">Reportes</a></li>
+                <li class="nav-item"><a class="nav-link" href="../sobre-nosotros.html">sobre-nosotros</a></li>
+
+
             </ul>
         </div>
     </nav>
@@ -187,40 +193,87 @@
             document.querySelector('.modal-title').textContent = 'Editar Estudiante';
         }
 
-        function guardarEstudiante() {
-            const id = document.getElementById('studentId').value;
-            const name = document.getElementById('studentName').value;
-            const lastName = document.getElementById('studentLastName').value;
-            const email = document.getElementById('studentEmail').value;
-            const grade = document.getElementById('studentGrade').value;
+        
+        
+        
 
-            if (filaSeleccionada) {
-                const celdas = filaSeleccionada.getElementsByTagName('td');
-                celdas[0].textContent = id;
-                celdas[1].textContent = name;
-                celdas[2].textContent = lastName;
-                celdas[3].textContent = email;
-                celdas[4].textContent = grade;
-                filaSeleccionada = null;
-            } else {
-                const table = document.querySelector('#studentTable tbody');
-                const newRow = table.insertRow();
-                newRow.innerHTML = `
-                    <td>${id}</td>
-                    <td>${name}</td>
-                    <td>${lastName}</td>
-                    <td>${email}</td>
-                    <td>${grade}</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm" onclick="editarEstudiante(this)" data-toggle="modal" data-target="#studentModal">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarEstudiante(this)">Eliminar</button>
-                    </td>
-                `;
-            }
+function guardarEstudiante() {
+    const id = document.getElementById('studentId').value;
+    const name = document.getElementById('studentName').value;
+    const lastName = document.getElementById('studentLastName').value;
+    const email = document.getElementById('studentEmail').value;
+    const grade = document.getElementById('studentGrade').value;
 
-            document.getElementById('studentForm').reset();
-            $('#studentModal').modal('hide');
-        }
+    const student = { id, name, lastName, email, grade };
+
+    // Obtener estudiantes existentes
+    let estudiantes = JSON.parse(localStorage.getItem('estudiantes')) || [];
+
+    if (filaSeleccionada) {
+        // Editar estudiante en tabla y localStorage
+        const index = Array.from(filaSeleccionada.parentNode.children).indexOf(filaSeleccionada);
+        estudiantes[index] = student;
+
+        const celdas = filaSeleccionada.getElementsByTagName('td');
+        celdas[0].textContent = id;
+        celdas[1].textContent = name;
+        celdas[2].textContent = lastName;
+        celdas[3].textContent = email;
+        celdas[4].textContent = grade;
+
+        filaSeleccionada = null;
+    } else {
+        // Agregar estudiante en tabla y localStorage
+        estudiantes.push(student);
+
+        const table = document.querySelector('#studentTable tbody');
+        const newRow = table.insertRow();
+        newRow.innerHTML = `
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${lastName}</td>
+            <td>${email}</td>
+            <td>${grade}</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="editarEstudiante(this)" data-toggle="modal" data-target="#studentModal">Editar</button>
+                <button class="btn btn-danger btn-sm" onclick="eliminarEstudiante(this)">Eliminar</button>
+            </td>
+        `;
+    }
+
+    // Guardar estudiantes en localStorage
+    localStorage.setItem('estudiantes', JSON.stringify(estudiantes));
+
+    document.getElementById('studentForm').reset();
+    $('#studentModal').modal('hide');
+}
+
+// Función para editar estudiante
+function editarEstudiante(button) {
+    filaSeleccionada = button.parentElement.parentElement;
+
+    const celdas = filaSeleccionada.getElementsByTagName('td');
+    document.getElementById('studentId').value = celdas[0].textContent;
+    document.getElementById('studentName').value = celdas[1].textContent;
+    document.getElementById('studentLastName').value = celdas[2].textContent;
+    document.getElementById('studentEmail').value = celdas[3].textContent;
+    document.getElementById('studentGrade').value = celdas[4].textContent;
+
+    $('#studentModal').modal('show');
+}
+
+// Función para eliminar estudiante
+function eliminarEstudiante(button) {
+    const row = button.parentElement.parentElement;
+    const index = Array.from(row.parentNode.children).indexOf(row);
+
+    let estudiantes = JSON.parse(localStorage.getItem('estudiantes')) || [];
+    estudiantes.splice(index, 1);
+
+    localStorage.setItem('estudiantes', JSON.stringify(estudiantes));
+    row.remove();
+}
+        
 
         function eliminarEstudiante(button) {
             button.closest('tr').remove();
