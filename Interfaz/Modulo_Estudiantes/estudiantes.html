@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Profesores - CEEP CONNECT</title>
+    <title>Gestión de Estudiantes - CEEP CONNECT</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="../styles/global.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -34,7 +34,6 @@
         }
         .info-container h3 {
             color: #283553;
-
         }
         .btn-primary {
             background-color: #283553 !important;
@@ -74,51 +73,53 @@
     </style>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
-        <a class="navbar-brand d-flex align-items-center" href="home.html">
-            <img src="images/logo-ceep.png" alt="Logo CEEP" width="50" height="50">
+        <a class="navbar-brand d-flex align-items-center" href="../home.html">
+            <img src="../images/logo-ceep.png" alt="Logo CEEP" width="50" height="50">
         </a>
         <div class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="Modulo_Estudiantes/estudiantes.html">Estudiantes</a></li>
-                <li class="nav-item"><a class="nav-link active" href="profesores.html">Profesores</a></li>
-                <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
-                <li class="nav-item"><a class="nav-link" href="materias.html">Materias</a></li>
+                <li class="nav-item"><a class="nav-link" href="../home.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" href="estudiantes.html">Estudiantes</a></li>
+                <li class="nav-item"><a class="nav-link" href="../profesores.html">Profesores</a></li>
+                <li class="nav-item"><a class="nav-link" href="../calificaciones.html">Calificaciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="../materias.html">Materias</a></li>
             </ul>
         </div>
     </nav>
+
     <div class="container info-container mt-4">
-        <h3>Gestión de Profesores</h3>
+        <h3>Gestión de Estudiantes</h3>
     </div>
 
     <div class="container text-right mb-3">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#professorModal" onclick="prepararAgregar()">Registrar Profesor</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#studentModal" onclick="prepararAgregar()">Registrar Estudiante</button>
     </div>
 
     <div class="container table-container">
-        <h2>Lista de Profesores</h2>
-        <table id="professorTable" class="table table-striped">
+        <h2>Lista de Estudiantes</h2>
+        <table id="studentTable" class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Correo</th>
-                    <th>Cursos</th>
+                    <th>Grado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>001</td>
-                    <td>Juan</td>
-                    <td>Pérez</td>
-                    <td>juan.perez@escuela.edu</td>
-                    <td>Matemáticas, Física</td>
+                    <td>María</td>
+                    <td>González</td>
+                    <td>maria.gonzalez@escuela.edu</td>
+                    <td>10</td>
                     <td>
-                        <button class="btn btn-warning btn-sm" onclick="editarProfesor(this)" data-toggle="modal" data-target="#professorModal">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarProfesor(this)">Eliminar</button>
+                        <button class="btn btn-warning btn-sm" onclick="editarEstudiante(this)" data-toggle="modal" data-target="#studentModal">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarEstudiante(this)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
@@ -129,68 +130,69 @@
         <p>© 2024 CEEP CONNECT. Todos los derechos reservados.</p>
     </footer>
 
-    <div id="professorModal" class="modal fade">
+    <div id="studentModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Registrar Profesor</h5>
+                    <h5 class="modal-title">Registrar Estudiante</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form id="profesorForm">
+                    <form id="studentForm">
                         <div class="form-group">
                             <label>ID:</label>
-                            <input type="text" id="professorId" class="form-control" required>
+                            <input type="text" id="studentId" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Nombre:</label>
-                            <input type="text" id="professorName" class="form-control" required>
+                            <input type="text" id="studentName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Apellido:</label>
-                            <input type="text" id="professorLastName" class="form-control" required>
+                            <input type="text" id="studentLastName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Correo:</label>
-                            <input type="email" id="professorEmail" class="form-control" required>
+                            <input type="email" id="studentEmail" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Cursos:</label>
-                            <input type="text" id="professorCourses" class="form-control" required>
+                            <label>Grado:</label>
+                            <input type="text" id="studentGrade" class="form-control" required>
                         </div>
-                        <button type="button" class="btn btn-primary btn-block" onclick="guardarProfesor()">Guardar</button>
+                        <button type="button" class="btn btn-primary btn-block" onclick="guardarEstudiante()">Guardar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
         let filaSeleccionada = null;
 
         function prepararAgregar() {
             filaSeleccionada = null;
-            document.getElementById('profesorForm').reset();
-            document.querySelector('.modal-title').textContent = 'Registrar Profesor';
+            document.getElementById('studentForm').reset();
+            document.querySelector('.modal-title').textContent = 'Registrar Estudiante';
         }
 
-        function editarProfesor(button) {
+        function editarEstudiante(button) {
             filaSeleccionada = button.closest('tr');
             const celdas = filaSeleccionada.getElementsByTagName('td');
-            document.getElementById('professorId').value = celdas[0].textContent;
-            document.getElementById('professorName').value = celdas[1].textContent;
-            document.getElementById('professorLastName').value = celdas[2].textContent;
-            document.getElementById('professorEmail').value = celdas[3].textContent;
-            document.getElementById('professorCourses').value = celdas[4].textContent;
-            document.querySelector('.modal-title').textContent = 'Editar Profesor';
+            document.getElementById('studentId').value = celdas[0].textContent;
+            document.getElementById('studentName').value = celdas[1].textContent;
+            document.getElementById('studentLastName').value = celdas[2].textContent;
+            document.getElementById('studentEmail').value = celdas[3].textContent;
+            document.getElementById('studentGrade').value = celdas[4].textContent;
+            document.querySelector('.modal-title').textContent = 'Editar Estudiante';
         }
 
-        function guardarProfesor() {
-            const id = document.getElementById('professorId').value;
-            const name = document.getElementById('professorName').value;
-            const lastName = document.getElementById('professorLastName').value;
-            const email = document.getElementById('professorEmail').value;
-            const courses = document.getElementById('professorCourses').value;
+        function guardarEstudiante() {
+            const id = document.getElementById('studentId').value;
+            const name = document.getElementById('studentName').value;
+            const lastName = document.getElementById('studentLastName').value;
+            const email = document.getElementById('studentEmail').value;
+            const grade = document.getElementById('studentGrade').value;
 
             if (filaSeleccionada) {
                 const celdas = filaSeleccionada.getElementsByTagName('td');
@@ -198,29 +200,29 @@
                 celdas[1].textContent = name;
                 celdas[2].textContent = lastName;
                 celdas[3].textContent = email;
-                celdas[4].textContent = courses;
+                celdas[4].textContent = grade;
                 filaSeleccionada = null;
             } else {
-                const table = document.querySelector('#professorTable tbody');
+                const table = document.querySelector('#studentTable tbody');
                 const newRow = table.insertRow();
                 newRow.innerHTML = `
                     <td>${id}</td>
                     <td>${name}</td>
                     <td>${lastName}</td>
                     <td>${email}</td>
-                    <td>${courses}</td>
+                    <td>${grade}</td>
                     <td>
-                        <button class="btn btn-warning btn-sm" onclick="editarProfesor(this)" data-toggle="modal" data-target="#professorModal">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarProfesor(this)">Eliminar</button>
+                        <button class="btn btn-warning btn-sm" onclick="editarEstudiante(this)" data-toggle="modal" data-target="#studentModal">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarEstudiante(this)">Eliminar</button>
                     </td>
                 `;
             }
 
-            document.getElementById('profesorForm').reset();
-            $('#professorModal').modal('hide');
+            document.getElementById('studentForm').reset();
+            $('#studentModal').modal('hide');
         }
 
-        function eliminarProfesor(button) {
+        function eliminarEstudiante(button) {
             button.closest('tr').remove();
         }
     </script>

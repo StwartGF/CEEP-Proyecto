@@ -1,4 +1,4 @@
-/* styles.css */
+
 
 body {
     font-family: Arial, sans-serif;
@@ -16,39 +16,39 @@ body {
 }
 
 .navbar {
-    background-color: #87CEEB; /* Color celeste */
+    background-color: #87CEEB; 
     padding: 15px;
     display: flex;
-    justify-content: space-between; /* Espacio entre los elementos */
+    justify-content: space-between; 
     align-items: center;
-    position: relative; /* Posición relativa para evitar que la barra lateral tape el nombre */
-    z-index: 1; /* Asegura que esté por encima de la barra lateral */
+    position: relative; 
+    z-index: 1; 
 }
 
 .sidebar {
     height: 100%;
     width: 200px;
     position: fixed;
-    top: 100px; /* Desplazamiento aumentado para asegurar visibilidad */
+    top: 100px; 
     left: 0;
-    background: linear-gradient(to bottom, #e6e6e6, #cccccc); /* Matices grises más claros */
+    background: linear-gradient(to bottom, #e6e6e6, #cccccc); 
     padding-top: 20px;
 }
 
 .sidebar h2 {
-    color: #003366; /* Color azul oscuro para el título "Menú" */
-    text-align: center; /* Centrar el texto */
-    font-style: italic; /* Texto en cursiva */
+    color: #003366; 
+    text-align: center; 
+    font-style: italic; 
     font-weight: bold;
 }
 
 .sidebar a {
     padding: 10px 15px;
     text-decoration: none;
-    color: black; /* Texto en negro */
+    color: black; 
     display: block;
-    font-weight: bold; /* Texto en negrita */
-    text-transform: uppercase; /* Texto en mayúsculas */
+    font-weight: bold; 
+    text-transform: uppercase; 
 
 }
 
@@ -62,26 +62,26 @@ body {
 }
 
 .sidebar a:hover {
-    background-color: #a6a6a6; /* Cambio de color al pasar el mouse */
+    background-color: #a6a6a6; 
 }
 
 .submenu {
-    padding-left: 20px; /* Sangría para la subsección */
+    padding-left: 20px; 
 }
 
 .content {
-    margin-left: 220px; /* Espacio para la barra lateral */
+    margin-left: 220px; 
     padding: 20px;
     flex-grow: 1;
 }
 
 .dark-theme {
     background-color: #333;
-    color: white; /* Texto blanco en modo oscuro */
+    color: white; 
 }
 
 button {
-    margin-left: 10px; /* Espacio entre botones */
+    margin-left: 10px; 
     cursor: pointer;
 }
 

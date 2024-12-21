@@ -7,7 +7,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
     <style>
-        /* Colores personalizados */
         .bg-primary {
             background-color: #283553 !important;
         }
@@ -30,65 +29,121 @@
             text-align: center;
             color: white;
         }
+        .card-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .btn-materias {
+            background-color: #6f42c1 !important;
+            color: white;
+        }
+        .btn-calificaciones {
+            background-color: #20c997 !important;
+            color: white;
+        }
+        .btn-asistencia {
+            background-color: #fd7e14 !important;
+            color: white;
+        }
+        .btn-estudiantes {
+            background-color: #007bff !important;
+            color: white;
+        }
+        .btn-profesores {
+            background-color: #e83e8c !important;
+            color: white;
+        }
+        .btn-nosotros {
+            background-color: #ffc107 !important;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
     <header class="bg-primary">
         <div class="container header-content">
             <img src="images/logo-ceep.png" alt="Logo CEEP">
             <div class="header-text">
                 <h1>Bienvenido a CEEP CONNECT</h1>
-                <p class="lead">Gestione tareas, materias, asistencia y calificaciones de forma sencilla</p>
+                <p class="lead">Tu aliado para gestionar tareas, materias, asistencia y mucho más.</p>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <div class="container mt-5">
-        <!-- Banner -->
         <div class="text-center mb-5">
             <img src="images/banner-ceep.png" alt="CEEP Banner" class="img-fluid">
         </div>
-
-        <!-- Cards Section -->
         <div class="row">
+
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">Gestión de Materias</h5>
-                        <p class="card-text">Administra las materias de forma eficiente y organizada.</p>
-                        <a href="materias.html" class="btn btn-primary">Ir a Materias</a>
+                        <p class="card-text">Descubre la mejor forma de organizar las materias del ciclo escolar.</p>
+                        <a href="materias.html" class="btn btn-materias">Ir a Materias</a>
                     </div>
                 </div>
             </div>
+  
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">Gestión de Calificaciones</h5>
-                        <p class="card-text">Controla y organiza las calificaciones de los estudiantes.</p>
-                        <a href="calificaciones.html" class="btn btn-success">Ir a Calificaciones</a>
+                        <p class="card-text">Un sistema confiable para registrar y supervisar las calificaciones.</p>
+                        <a href="calificaciones.html" class="btn btn-calificaciones">Ir a Calificaciones</a>
                     </div>
                 </div>
             </div>
+ 
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">Gestión de Asistencia</h5>
-                        <p class="card-text">Lleva un control preciso de la asistencia de los estudiantes.</p>
-                        <a href="asistencia.html" class="btn btn-warning">Ir a Asistencia</a>
+                        <p class="card-text">Controla la asistencia con facilidad y mantén todo en orden.</p>
+                        <a href="asistencia.html" class="btn btn-asistencia">Ir a Asistencia</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+   
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gestión de Estudiantes</h5>
+                        <p class="card-text">Registra, organiza y accede a toda la información estudiantil.</p>
+                        <a href="Modulo_Estudiantes/estudiantes.html" class="btn btn-estudiantes">Ir a Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gestión de Profesores</h5>
+                        <p class="card-text">Facilita la gestión de los profesores y sus asignaturas.</p>
+                        <a href="profesores.html" class="btn btn-profesores">Ir a Profesores</a>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sobre Nosotros</h5>
+                        <p class="card-text">Descubre nuestra visión, misión y la historia detrás de CEEP CONNECT.</p>
+                        <a href="sobre-nosotros.html" class="btn btn-nosotros">Conocer Más</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-center py-4 mt-5">
         <p>© 2024 CEEP CONNECT. Todos los derechos reservados.</p>
     </footer>
-
-    <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
